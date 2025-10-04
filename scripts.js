@@ -21,10 +21,10 @@ let shade = e => {
 sizeButton.addEventListener('click', () => {
     gridSize = ''
     console.log(gridSize)
-    let userVal = prompt('Well?')
+    let userVal = prompt('Set the x and y to a number between 1 and 100')
     gridSize = userVal === null
     || userVal === ''
-    || userVal > 99
+    || userVal > 100
     || userVal < 0
     || isNaN(userVal) ? 16 : userVal
     buildCanvas(gridSize)
