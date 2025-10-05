@@ -12,8 +12,8 @@ body {
 
 .container {
     display: flex;
-    height: 800px;
-    width: 800px;
+    height: 900px;
+    width: 900px;
     flex-wrap: wrap;
     border: 5px solid black;
 }

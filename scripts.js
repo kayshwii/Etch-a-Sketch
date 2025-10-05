@@ -9,7 +9,6 @@ let setRGB = document.querySelector('#rgbMode')
 let mode = 'darkMode'
 
 let modeSet = e => {
-    console.log(e.target.id)
     mode = e.target.id
 }
 
@@ -38,7 +37,6 @@ let color = e => {
 //grid generating
 sizeButton.addEventListener('click', () => {
     gridSize = ''
-    console.log(gridSize)
     let userVal = prompt('Set the x and y to a number between 1 and 100')
     gridSize = userVal === null
     || userVal === ''
@@ -52,8 +50,8 @@ let buildCanvas = (gridSize = 16) => {
     //reset container
     container.innerHTML = ''
 
-    //set the height/width of the flex childre
-    boxSize = 800 / gridSize
+    //set the height/width of the flex children
+    boxSize = 900 / gridSize
 
     //set the number of boxes
     for (let i = 0; i < gridSize * gridSize; i++) {
@@ -71,17 +69,3 @@ let buildCanvas = (gridSize = 16) => {
 }
 
 buildCanvas()
-
-
-//obsolete but i thought i was cooking
-// for (let i = 1; i <= 16; i++) {
-//     let x = document.createElement('div')
-//     x.classList.add('column')
-//     container.appendChild(x)
-//     for (let j = 1; j <= 16; j++) {
-//         let y = document.createElement('div')
-//         y.classList.add('box')
-//         y.addEventListener('mouseover', highlight)
-//         x.appendChild(y)
-//     }
-// }
