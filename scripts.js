@@ -1,23 +1,41 @@
 //node selectors
 let container = document.querySelector('.container');
-let sizeButton = document.querySelector('.setSize')
+let sizeButton = document.querySelector('#setSize')
+let setDark = document.querySelector('#darkMode')
+let setShade = document.querySelector('#shadeMode')
+let setRGB = document.querySelector('#rgbMode')
 
-//event listeners
-let highlight = e => {
-    e.target.style.backgroundColor = 'black';
+//mode setting
+let mode = 'darkMode'
+
+let modeSet = e => {
+    console.log(e.target.id)
+    mode = e.target.id
 }
 
-let shade = e => {
-    let count = parseInt(e.target.dataset.enters) + 10
-    e.target.dataset.enters = count
-    console.log(count)
-    e.target.style.backgroundColor = 'black'
-    e.target.style.opacity = `${count}%`
+setDark.addEventListener('click', modeSet)
+setShade.addEventListener('click', modeSet)
+setRGB.addEventListener('click', modeSet)
+
+//color handling
+let color = e => {
+    if (mode === 'darkMode') {
+        e.target.style.backgroundColor = 'black'
+        e.target.style.opacity = '100%'
+
+    } else if (mode === 'shadeMode') {
+        let count = parseInt(e.target.dataset.enters) + 10
+        e.target.dataset.enters = count
+        e.target.style.backgroundColor = 'black'
+        e.target.style.opacity = `${count}%`
+    } else {
+        let rgbValue = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`
+        e.target.style.backgroundColor = rgbValue
+        e.target.style.opacity = '100%'
+    }
 }
 
-
-
-
+//grid generating
 sizeButton.addEventListener('click', () => {
     gridSize = ''
     console.log(gridSize)
@@ -46,7 +64,7 @@ let buildCanvas = (gridSize = 16) => {
 
         //track mouse entries into box
         box.dataset.enters = 0
-        box.addEventListener('mouseenter', (shade))
+        box.addEventListener('mouseenter', color)
 
         container.appendChild(box)
     }
