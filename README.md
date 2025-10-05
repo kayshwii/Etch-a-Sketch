@@ -16,3 +16,10 @@
 - For Extra Credit
   - Make the squares random colors
   - Make the squares get progressively darker
+
+## What I learned
+
+- Using Flexbox to create a grid
+- JavaScript Event Handlers
+- Creating and modifying html elements in JS
+- Storing data attributes on html elements `dataset`
